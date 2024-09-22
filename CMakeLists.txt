@@ -20,10 +20,16 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-#target_link_libraries(test_package GTest::gtest_main)
+add_executable(test_binary_tree ./test/test_binary_tree.cpp)
+
+target_include_directories(test_binary_tree PUBLIC ${CMAKE_SOURCE_DIR}/src)
+
+target_link_libraries(test_binary_tree GTest::gtest_main)
 
 include(GoogleTest)
 
-gtest_discover_tests(test_package)
+gtest_discover_tests(test_binary_tree)
+
+
 
 
